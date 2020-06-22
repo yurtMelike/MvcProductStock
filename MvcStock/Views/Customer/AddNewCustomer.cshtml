@@ -1,0 +1,17 @@
+﻿
+@{
+    ViewBag.Title = "AddNewCustomer";
+    Layout = "~/Views/Shared/_NavigationBarLayout.cshtml";
+}
+
+<form class="form-group" method="post" autocomplete="off">
+    <div class="container">
+        <label>MÜŞTERİ ADI</label>
+        <input type="text" class="form-control" name="CustomerName" style="width:500px;" required="required"/><br />
+        <label>MÜŞTERİ SOYADI</label>
+        <input type="text" class="form-control" name="CustomerSurname" style="width:500px;" required="required" />
+    </div>
+    <div style="margin:15px">
+        <button class="btn btn-info">MÜŞTERİ EKLE</button>
+    </div>
+</form>

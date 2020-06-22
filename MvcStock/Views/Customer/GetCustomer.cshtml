@@ -1,0 +1,23 @@
+﻿@model MvcStock.Models.Entity.TblCustomer
+@{
+    ViewBag.Title = "GetCustomer";
+    Layout = "~/Views/Shared/_NavigationBarLayout.cshtml";
+}
+
+@using (Html.BeginForm("UpdateCustomer", "Customer", FormMethod.Post ,new { autocomplete = "off" }))
+{
+<div class="form-group">
+    @Html.Label("MÜŞTERİ NUMARASI", new { @style = "width:500px;", @class = "hidden" })
+    @Html.TextBoxFor(i => i.CustomerId, new { @style = "width:500px;", @class = "hidden" })
+    @Html.Label("Müşteri Adı", new { @style = "width:500px;", @class = "form-control" })
+    @Html.TextBoxFor(i => i.CustomerName, new { @style = "width:500px;", @class = "form-control" })
+    <br />
+    @Html.Label("Müşteri Soyadı", new { @style = "width:500px;", @class = "form-control" })
+    @Html.TextBoxFor(i => i.CustomerSurname, new { @style = "width:500px;", @class = "form-control" })
+</div>
+    <div>
+        <button class="btn btn-success">MÜŞTERİ GÜNCELLE</button>
+    </div>
+}
+
+

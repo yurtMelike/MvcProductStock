@@ -1,0 +1,24 @@
+﻿@model MvcStock.Models.Entity.TblProduct
+@{
+    ViewBag.Title = "AddNewProduct";
+    Layout = "~/Views/Shared/_NavigationBarLayout.cshtml";
+}
+
+<form class="form-group" method="post" autocomplete="off">
+    <div class="container">
+        <label>ÜRÜN ADI</label>
+        <input type="text" class="form-control" name="ProductName" style="width:500px;" required="required"/><br />
+        <label>MARKASI</label>
+        <input type="text" class="form-control" name="Marka" style="width:500px;" required="required" />
+        <label style="width:500px;">ÜRÜN KATEGORİSİ</label><br />
+        @Html.DropDownListFor(x=>x.TblCategory.CategoryId, (List<SelectListItem>)ViewBag.value, new { @style = "width:500px;", @class = "form-control" })
+        <br />
+        <label>FİYATI</label>
+        <input type="text" class="form-control" name="Price" style="width:500px;" required="required" />
+        <label>STOK ADETİ</label>
+        <input type="text" class="form-control" name="Stock" style="width:500px;" required="required" />
+    </div>
+    <div style="margin:15px">
+        <button class="btn btn-info">ÜRÜN EKLE</button>
+    </div>
+</form>

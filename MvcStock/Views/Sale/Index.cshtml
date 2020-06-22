@@ -1,0 +1,35 @@
+﻿@model MvcStock.Models.Entity.TblSale
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_NavigationBarLayout.cshtml";
+}
+
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#Modal">SATIŞ YAPMAK İÇİN TIKLAYINIZ</button>
+<a class="btn btn-success" href="/Sale/GetSaleList">SATIŞ LİSTESİNE ULAŞMAK İÇİN TIKLAYINIZ</a>
+
+
+
+<div class="modal" id="Modal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title text-center"><b>SATIŞ EKRANI</b></h4>
+            </div>
+            <form method="post" action="/Sale/NewSale" autocomplete="off">
+                <div class="modal-body">
+                    <label>ÜRÜN NUMARASI</label>
+                    @Html.TextBoxFor(s => s.Product, new { @class = "form-control", @required = "", @placeholder = "Ürün Id Numarası" })<br />
+                    <label>MÜŞTERİ NUMARASI</label>
+                    @Html.TextBoxFor(s => s.Customer, new { @class = "form-control", @required = "", @placeholder = "Müşteri Id Numarası" })<br />
+                    <label>ADET</label>
+                    @Html.TextBoxFor(s => s.Total, new { @class = "form-control", @required = "" })<br />
+                    <label>TUTAR</label>
+                    @Html.TextBoxFor(s => s.Price, new { @class = "form-control", @required = "" })<br /><br />
+                    <button class="btn btn-success">SATIŞ  YAP</button>
+                    <button class="btn btn-danger" data-dismiss="modal">VAZGEÇ</button><br /><br />
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+

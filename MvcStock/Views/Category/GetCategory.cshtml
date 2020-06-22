@@ -1,0 +1,21 @@
+﻿@model MvcStock.Models.Entity.TblCategory
+@{
+    ViewBag.Title = "GetCategory";
+    Layout = "~/Views/Shared/_NavigationBarLayout.cshtml";
+}
+
+@using (Html.BeginForm("UpdateCategory", "Category", FormMethod.Post, new { autocomplete = "off" }))
+{
+<div class="form-group">
+    @Html.LabelFor(i => i.CategoryId, new { @style = "width:500px;", @class = "hidden" })
+    @Html.TextBoxFor(i => i.CategoryId, new { @style = "width:500px;", @class = "hidden" })
+    @Html.Label("Kategori Adı", new { @style = "width:500px;", @class = "form-control" })
+    @Html.TextBoxFor(i => i.CategoryName, new { @style = "width:500px;", @class = "form-control" })
+</div>
+    <div>
+        <button class="btn btn-success">KATEGORİ GÜNCELLE</button>
+    </div>
+}
+
+
+

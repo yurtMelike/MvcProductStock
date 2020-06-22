@@ -1,0 +1,31 @@
+﻿@using MvcStock.Models.Entity
+@model List<TblSale>
+@{
+    ViewBag.Title = "GetSaleListS";
+    Layout = "~/Views/Shared/_NavigationBarLayout.cshtml";
+}
+<a class="btn btn-warning" href="/Sale/GetSaleList">GERİ</a>
+<br />
+<br />
+<table class="table table-bordered">
+    <tr>
+        <th>SATIŞ ID</th>
+        <th>ÜRÜN</th>
+        <th>MÜŞTERİ</th>
+        <th>ADET</th>
+        <th>ÜRÜN FİYATI</th>
+    </tr>
+    <tbody>
+        @foreach (var sale in Model)
+        {
+            <tr>
+                <td>@sale.Sale</td>
+                <td>@sale.TblProduct.ProductName</td>
+                <td>@sale.TblCustomer.CustomerName&nbsp;@sale.TblCustomer.CustomerSurname</td>
+                <td>@sale.Total</td>
+                <td>@sale.Price</td>
+            </tr>
+        }
+    </tbody>
+</table>
+

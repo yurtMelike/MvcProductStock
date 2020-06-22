@@ -1,0 +1,35 @@
+﻿@using MvcStock.Models.Entity
+@using PagedList;
+@using PagedList.Mvc
+@model PagedList.IPagedList<TblCustomer>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_NavigationBarLayout.cshtml";
+}
+<a class="btn btn-primary" href="/Customer/AddNewCustomer">YENİ MÜŞTERİ EKLE</a>
+<br />
+<br />
+<table class="table table-bordered">
+    <tr>
+        <th>MÜŞTERİ NUMARASI</th>
+        <th>MÜŞTERİ ADI</th>
+        <th>MÜŞTERİ SOYADI</th>
+        <th>SİL</th>
+        <th>GÜLCELLE</th>
+    </tr>
+    <tbody>
+        @foreach (var customer in Model)
+        {
+            <tr>
+                <td>@customer.CustomerId</td>
+                <td>@customer.CustomerName</td>
+                <td>@customer.CustomerSurname</td>
+                <td><a href="/Customer/Delete/@customer.CustomerId" class="btn btn-danger">SİL</a></td>
+                <td><a href="/Customer/GetCustomer/@customer.CustomerId" class="btn btn-success">GÜNCELLE</a></td>
+            </tr>
+        }
+    </tbody>
+</table>
+@Html.PagedListPager((IPagedList)Model, page => Url.Action("Index", new { page }))
+
+

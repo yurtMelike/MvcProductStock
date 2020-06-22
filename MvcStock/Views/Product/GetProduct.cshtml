@@ -1,0 +1,27 @@
+﻿@model MvcStock.Models.Entity.TblProduct
+@{
+    ViewBag.Title = "GetProduct";
+    Layout = "~/Views/Shared/_NavigationBarLayout.cshtml";
+}
+
+@using (Html.BeginForm("UpdateProduct", "Product", FormMethod.Post, new { autocomplete = "off" }))
+{
+    <div class="form-group">
+        @Html.Label("ÜRÜN NUMARASI", new { @style = "width:500px;", @class = "hidden" })
+        @Html.TextBoxFor(i => i.ProductId, new { @style = "width:500px;", @class = "hidden" })<br />
+        @Html.Label("Ürün Adı", new { @style = "width:500px;", @class = "form-control" })
+        @Html.TextBoxFor(i => i.ProductName, new { @style = "width:500px;", @class = "form-control" })<br />
+        @Html.Label("Markası", new { @style = "width:500px;", @class = "form-control" })
+        @Html.TextBoxFor(i => i.Marka, new { @style = "width:500px;", @class = "form-control" })<br />
+        @Html.Label("Ürün Kategorisi", new { @style = "width:500px;", @class = "form-control" })
+        @Html.DropDownListFor(i => i.TblCategory.CategoryId, (List<SelectListItem>)ViewBag.value, new { @style = "width:500px;", @class = "form-control" })<br />
+        @Html.Label("Fiyat", new { @style = "width:500px;", @class = "form-control" })
+        @Html.TextBoxFor(i => i.Price, new { @style = "width:500px;", @class = "form-control" })<br />
+        @Html.Label("Stok Adeti", new { @style = "width:500px;", @class = "form-control" })
+        @Html.TextBoxFor(i => i.Stock, new { @style = "width:500px;", @class = "form-control" })
+    </div>
+    <div>
+        <button class="btn btn-success">ÜRÜN GÜNCELLE</button>
+    </div>
+}
+
